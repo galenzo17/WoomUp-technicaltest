@@ -1,0 +1,16 @@
+@api = http://localhost:3000
+
+GET {{api}}/users
+
+### 
+POST {{api}}/users
+Content-Type: application/json
+
+{
+  "name": "Alejandra",
+  "roles": [{"role":"guiada"}],
+  "enterprises":[{"enterprise":"empresa1"}]
+}
+
+###
+DELETE {{api}}/users/8SpGOgWTSHvhaiYoZts-p
