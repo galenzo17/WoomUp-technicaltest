@@ -6,6 +6,9 @@ import {
   deleteUser,
   getUser,
   updateUser,
+  getMatchesById,
+  matchesCount,
+  matchesTypesCountById,
 } from "../controllers/user.controller";
 
 const router = Router();
@@ -14,6 +17,24 @@ const router = Router();
  * @swagger
  components:
  *  schemas:
+ *    MatchTypeCount:
+ *      type: object
+ *      properties:
+ *        networkingcount:
+ *          type: integer
+ *        mentoriacount:
+ *          type: integer
+ *        internocount:
+ *          type: integer
+ *        mentoriainternacount:
+ *          type: integer
+ *    Match:
+ *      type: object
+ *      properties:
+ *        matchtype:
+ *          type: string
+ *        usernamematch:
+ *          type: string
  *    Enterprise:
  *      type: object
  *      properties:
@@ -43,6 +64,11 @@ const router = Router();
  *          description: a list of enterprises
  *          items:
  *           $ref: '#/components/schemas/Enterprise'
+ *        matches:
+ *          type: array
+ *          description: a list of matches
+ *          items:
+ *           $ref: '#/components/schemas/Match'
  *    UserNotFound:
  *      type: object
  *      properties:
@@ -65,8 +91,10 @@ const router = Router();
 /**
  * @swagger
  * tags:
- *  name: Users
- *  description: Users endpoint
+ *  - name: Users
+ *    description: Users endpoints
+ *  - name: Matchs
+ *    description: Matchs endpoints
  */
 
 /**
@@ -210,5 +238,73 @@ router.delete("/users/:id", deleteUser);
  *
  */
 router.put("/users/:id", updateUser);
+
+/**
+ * @swagger
+ * /matchesbyid/{id}:
+ *  get:
+ *    summary: Matches from an user by id
+ *    tags: [Matchs]
+ *    parameters:
+ *      - $ref: '#/components/parameters/userId'
+ *    responses:
+ *      200:
+ *        description: The list of matches
+ *        content:
+ *          application/json:
+ *            schema:
+ *            $ref: '#/components/schemas/Match'
+ *      404:
+ *        description: the matchs user was not found
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/UserNotFound'
+ *
+ */
+router.get("/matchesbyid/:id",getMatchesById);
+
+/**
+ * @swagger
+ * /coutnbyid/{id}:
+ *  get:
+ *    summary: Get a user by Id
+ *    tags: [Matchs]
+ *    responses:
+ *      200:
+ *        description: the total number of matchs by id
+ *        content:
+ *          text/plain:
+ *            schema:
+ *              type: integer
+ *              example: 15
+ *
+ */
+router.get("/coutnbyid/:id",matchesCount);
+
+/**
+ * @swagger
+ * /coutnbytype/{id}:
+ *  get:
+ *    summary: Matches from an user by id
+ *    tags: [Matchs]
+ *    parameters:
+ *      - $ref: '#/components/parameters/userId'
+ *    responses:
+ *      200:
+ *        description: The list of matches
+ *        content:
+ *          application/json:
+ *            schema:
+ *            $ref: '#/components/schemas/MatchTypeCount'
+ *      404:
+ *        description: the matchs user was not found
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/UserNotFound'
+ *
+ */
+router.get("/coutnbytype/:id",matchesTypesCountById);
 
 export default router;

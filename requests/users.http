@@ -7,10 +7,35 @@ POST {{api}}/users
 Content-Type: application/json
 
 {
-  "name": "Alejandra",
-  "roles": [{"role":"guiada"}],
-  "enterprises":[{"enterprise":"empresa1"}]
+ "name": "Sofia", 
+   "roles": [{"role":"mentora"}],
+   "enterprises": [{"enterprise": "Empresa3"}]
 }
 
 ###
 DELETE {{api}}/users/8SpGOgWTSHvhaiYoZts-p
+
+### matches by Id
+GET {{api}}/matchesbyid/A-380hZqizjh3C_ucOoN0
+
+### user by Id
+GET {{api}}/users/A-380hZqizjh3C_ucOoN0
+
+###
+PUT {{api}}/users/yQtoUBWm74Mn1rbTxCZj8
+Content-Type: application/json
+
+{
+  "name": "Miriam",
+  "roles": [{"role":"guiada"}],
+  "matches":[
+    {"matchtype":"Match interno de empresa","usernamematch":"Sandra"},
+    {"matchtype":"Match de networking","usernamematch":"Antonia"}
+    ]
+}
+
+###
+GET {{api}}/coutnbyid/B3SNpP98p5ovMTvAYuJtU
+
+###
+GET {{api}}/coutnbytype/yQtoUBWm74Mn1rbTxCZj8

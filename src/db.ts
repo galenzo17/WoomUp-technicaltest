@@ -6,11 +6,17 @@ type Enterprise={
 type Role={
   role:string;
 }
-type User = {
+type Match={
+  matchtype:string;
+  usernamematch:string;
+}
+
+export type User = {
   id: string;
   name: string;
   roles: Role[];
   enterprises: Enterprise[];
+  matches:Match[];
 };
 
 type Schema = {
