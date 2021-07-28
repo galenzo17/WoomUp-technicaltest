@@ -20,4 +20,5 @@ Para poder interactuar con nuestra API ingresamos la siguiente url
 http://localhost:3000/docs/
 
 
-Hecho con amor por Agustin Bereciartua Castillo para [logo]: https://cdn.woomup.cl/assets/uploads/2018/12/19112354/wdt_logochico.png "WoomUp logo"
+Hecho con amor por Agustin Bereciartua Castillo para 
+[logo]: https://cdn.woomup.cl/assets/uploads/2018/12/19112354/wdt_logochico.png "WoomUp logo"
