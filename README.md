@@ -5,17 +5,30 @@ En este repositorio se busca responder al requerimiento planteado, que se trata 
 
 El proyecto ejecuta un servidor Node/express y utiliza typescript para mejor lectura del codigo y sus ejemplos.
 
-Para poder ejecutar el proyecto debemos tener instalado Node (una version superior 10) luego clonar el repositorio en una terminal
+Para poder ejecutar el proyecto debemos tener instalado Node (una version superior 10) luego clonar el repositorio en una terminal y ejecutamos los siguientes comandos de forma secuencial y en el mismo orden
+1:
 ```bash
 git clone https://github.com/galenzo17/WoomUp-technicaltest.git
+```
+2:
+```bash
 cd WoomUp-technicaltest
+```
+3:
+```bash
 npm i
+```
+4:
+```bash
 npm run build
+```
+5:
+```bash
 npm start
 ```
 Esto desplegara un servidor en el puerto local 3000.
 
-Para poder interactuar con nuestra API ingresamos la siguiente url
+Para poder interactuar con nuestra API ingresamos la siguiente url, donde prodremos interactuar (crear, editar, listar y eliminar usuarias) y  visualizar como respectivos matchs se van modificando segun corresponda.
 
 http://localhost:3000/docs/
 
